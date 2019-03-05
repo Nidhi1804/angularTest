@@ -17,7 +17,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
       const routeParams = this.activeRoute.snapshot.params;
-      this.dt.findDetail(routeParams.time).subscribe((res:any) => {
+      this.dt.findDetail(routeParams.id).subscribe((res:any) => {
         if(res.length > 0){
           this.data = res[0];
           this.response = res;
@@ -26,7 +26,7 @@ export class DetailComponent implements OnInit {
   }
   public saveData(){
     const routeParams = this.activeRoute.snapshot.params;
-    this.data['time'] = routeParams.time;
+    this.data['timeId'] = routeParams.id;
     this.dt.saveDetail(this.data).subscribe((res) => {
       this.router.navigate(['/']);
     });
@@ -34,7 +34,7 @@ export class DetailComponent implements OnInit {
 
   public updateData(){
     const routeParams = this.activeRoute.snapshot.params;
-    this.data['time'] = routeParams.time;
+    this.data['timeId'] = routeParams.id;
     this.dt.updateDetail(this.data).subscribe((res) => {
       this.router.navigate(['/']);
     });

@@ -9,15 +9,20 @@ import { ListService } from './list.service';
 })
 export class ListComponent implements OnInit {
   users: any;
-  items: any;
+  items: any[];
+  isIndex: any;
   time: any;
-  constructor(private ls:ListService) { }
+  constructor(private ls: ListService) { }
 
   ngOnInit() {
-    this.items = ['9:00AM','10:00AM','11:00AM','12:00PM','1:00PM','2:00PM','3:00PM','4:00PM','5:00PM']
-    this.ls.getList().subscribe((data) => {
-      this.users = data;
-  });
+    this.items = [];
+    let startTime = new Date(2019, 1, 1, 9, 0, 0, 0);
+    let endTime = new Date(2019, 1, 1, 17, 0, 0, 0);
+    for (let i = 0; i <= (endTime.getHours() - startTime.getHours()); i++) {
+      this.items.push({ id: i, time: (startTime.getHours() + i) + ":00" })
+    }
+    this.ls.getList().subscribe((data: number[]) => {
+      this.users = data
+    });
   }
-
 }

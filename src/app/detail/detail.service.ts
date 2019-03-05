@@ -17,7 +17,7 @@ export class DetailService {
   }
 
   updateDetail(obj){
-    return this.http.post(`${this.uri}/update/`+obj.time,obj);
+    return this.http.post(`${this.uri}/update/`+obj.timeId,obj);
   }
 
 }
