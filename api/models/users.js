@@ -14,7 +14,7 @@ let users = new Schema({
   number: {
     type: Number
   },
-  time: {
+  timeId: {
     type: String
   }
 },{
