@@ -1,0 +1,17 @@
+<form action="/action_page.php">
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" [(ngModel)]="data.fName" [ngModelOptions]="{standalone: true}"   class="form-control" id="firstName">
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input type="text" [(ngModel)]="data.lName" [ngModelOptions]="{standalone: true}"  class="form-control" id="lastName">
+  </div>
+  <div class="form-group">
+    <label for="number">Mobile Number:</label>
+    <input type="number" [(ngModel)]="data.number" [ngModelOptions]="{standalone: true}"  class="form-control" id="number">
+  </div>
+  <button *ngIf="response.length == 0" type="submit" class="btn btn-primary" (click)="saveData()">Submit</button>
+  <button *ngIf="response.length != 0" type="submit" class="btn btn-primary" (click)="updateData()">Update</button>
+  <a type="submit" class="btn btn-light" href="/">Cancel</a>
+</form>
